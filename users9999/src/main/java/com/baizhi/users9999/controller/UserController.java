@@ -20,19 +20,20 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
-@Autowired
-private DiscoveryClient discoveryClient;
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
-@Autowired
-private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping("/user/showMsg")
-    public String showMsg(){
+    public String showMsg() {
         String msg = restTemplate.getForObject("http://localhost:9998/product/showMsg", String.class);
         return msg;
     }
 
     @GetMapping("/user/findAllProducts")
-    public String findAllProducts(){
+    public String findAllProducts() {
 //        RestTemplate restTemplate = new RestTemplate();
 //        String msg = restTemplate.getForObject("http://localhost:9998/products/findAll", String.class);
 

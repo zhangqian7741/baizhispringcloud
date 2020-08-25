@@ -13,7 +13,7 @@ public class FeignController {
     private ProductClient productClient;
 
     @GetMapping("/feign/test")
-    public String test(){
+    public String test() {
         log.info("进入调用feign测试方法....");
         return productClient.showMsg();
     }
