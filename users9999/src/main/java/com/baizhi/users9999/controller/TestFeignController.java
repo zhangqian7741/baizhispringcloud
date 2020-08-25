@@ -46,4 +46,8 @@ public class TestFeignController {
         return productClients.update(product);
     }
 
+    @GetMapping("feign/test4")
+    public String testBreak(@RequestParam("id") Integer id) {
+        return productClients.testBreak(id);
+    }
 }

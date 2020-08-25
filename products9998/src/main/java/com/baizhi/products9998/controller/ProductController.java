@@ -1,6 +1,7 @@
 package com.baizhi.products9998.controller;
 
 import com.baizhi.products9998.entity.Product;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -74,5 +75,16 @@ public class ProductController {
         map.put("product", product);
         return map;
     }
+
+
+    @GetMapping("product/break")
+//    @HystrixCommand(fallbackMethod = "testBreakFallBack")
+    public String testBreak (Integer id ){
+        if (id<0)
+            throw new RuntimeException("非法参数,id < 0 ");
+
+        return "访问成功当前访问的id:  " + id;
+    }
+
 
 }
